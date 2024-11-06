@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Url Shortner</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="">Url Shortner</h1>
+    <% if(locals.shortId) { %>
+        <h1>URL Generated: http://localhost:8000/redirect/<%= shortId %></h1>
+    <%} %>
+    <div class="">
+        <form action="/api/v1/url" method="post" class="">
+            <input name="url" type="text" class="" placeholder="http://www.example.com" required>
+            <button  type="submit" >submit</button>
+        </form>
+    </div>
+    <div class="">
+        <% if(locals.allUrls) { %>
+            <table>
+                <thead>
+                    <th>S. no</th>
+                    <th>ShortID</th>
+                    <th>Redirect</th>
+                    <th>Clicks</th>
+                </thead>
+                <tbody>
+                    <% allUrls.forEach((url, index) => { %>
+                        <tr>
+                            <td><%=index + 1%></td>
+                            <td><%=url.shortId%></td>
+                            <td><%=url.redirectUrl%></td>
+                            <td><%=url.clicks.length%></td>
+                        </tr>
+                    <% })%>
+
+                </tbody>
+            </table>
+        <% } %>
+    </div>
+</body>
+</html>
