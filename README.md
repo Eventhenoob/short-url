@@ -8,6 +8,7 @@ To run this application, ensure that you have the following dependencies install
 
   - Node.js
   - TypeScript and the TypeScript compiler
+  - Nodemon
 
 Setup Instructions
 
